@@ -1,0 +1,21 @@
+{
+  "name": "fizzbuzztree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fizzbuzztree.js",
+  "scripts": {
+    "lint": "eslint **/*.js",
+    "start": "node index.js",
+    "test": "jest --coverage --verbose",
+    "test-watch": "jest --watchAll --verbose --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-env": "^2.4.1",
+    "babel-eslint": "^8.2.3",
+    "babel-register": "^6.26.0",
+    "eslint": "^4.19.1",
+    "jest": "^23.1.0"
+  }
+}
