@@ -1,8 +1,8 @@
 'use strict';
 
-import BinaryTree from '../binary-tree';
-import Node from '../node';
-import FizzBuzzTree from '../fizzbuzztree';
+import BinaryTree from '../fizzbuzztree/binary-tree';
+import Node from '../fizzbuzztree/node';
+import FizzBuzzTree from '../fizzbuzztree/fizzbuzztree';
 
 const one = new Node(1);
 const three = new Node(3);
