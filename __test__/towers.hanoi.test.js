@@ -1,6 +1,6 @@
 'use strict';
 
-const towersOfHanoi = require('../Towers-of-hanoi/towers-of-Hanoi.js');
+const towersOfHanoi = require('../Towers-of-hanoi/towers-of-hanoi.js');
 
 describe('towersOfHanoi(n)', () => {
 
