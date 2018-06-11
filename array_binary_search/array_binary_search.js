@@ -1,33 +1,24 @@
 'use strict';
 
-function findMidpoint(start, end) {
-  return Math.ceil(start + ((end - start) / 2));
-}
-function BinarySearch(array, key) { //eslint-disable-line
-  let startIndex = 0;
-  let endIndex = array.length - 1;
-  let midpoint = Math.ceil((array.length - 1) / 2);
-  if (key === array[midpoint]) {
-    return midpoint;
-  }
-  while (key !== array[midpoint]) {
-    if (key === array[midpoint]) {
-      return midpoint;
-    } else if (key > array[midpoint]) {
-      startIndex = midpoint + 1;
-      midpoint = findMidpoint(startIndex, endIndex);
-    } else if (key < array[midpoint]) {
-      endIndex = midpoint - 1;
-      midpoint = findMidpoint(startIndex, endIndex);
-    }
-    if (key === array[midpoint]) {
-      return midpoint;
-    }
-    if (key < array[startIndex] || key > array[endIndex]) {
+const binarySearch = function(arr, sk) {
+  let left = 0;
+  let right = arr.length - 1;
+  let middle = 0;
+
+  while( arr[middle] !== sk ) {
+    if (left > right) {
       return -1;
     }
+
+    middle = Math.floor((left + right) / 2);
+    
+    if (arr[middle] < sk) {
+      left = middle + 1;
+    } else if (arr[middle] > sk) {
+      right = middle - 1;
+    } 
   }
-  if (startIndex === endIndex) {
-    return startIndex;
-  }
-}
+  return middle;
+};
+
+module.exports = binarySearch;

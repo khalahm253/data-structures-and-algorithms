@@ -1,8 +1,8 @@
 'use strict';
 
-import BinaryTree from '../binary-tree';
-import Node from '../node';
-import breadthFirstTraversal from '../breadth-first-traversal';
+import BinaryTree from '../breadthfirst/binary-tree';
+import Node from '../breadthfirst/node';
+import breadthFirstTraversal from '../breadthfirst/breadth-first-traversal';
 
 const one = new Node(1);
 const three = new Node(3);

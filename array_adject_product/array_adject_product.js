@@ -1,68 +1,33 @@
-
 'use strict';
 
-var my2DArray = [[1, 2, 3],[4, 5, 6],[7, 8, 1]];
+const largestProduct = function(arr) {
 
-function largestProduct() {
+  let largestProduct = 0; 
 
-  var highestAdjNums = 0;
+  if ( !(arr instanceof Array)) { return 'Not Valid Array'; }
 
-  for (var i = 0; i < my2DArray.length; i++) {
-    if (typeof my2DArray[i-1] !== 'undefined') {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      let product = adjProduct(arr[i][j], i, j);
+      largestProduct = product > largestProduct ? product : largestProduct;
+    }
+  }
+  return largestProduct;
 
-      for (var j = 0; j < my2DArray[i].length; j++) {
-        var currentNum = my2DArray[i][j];
-    
-        var topLeft = my2DArray[i-1][j-1] * currentNum;
-        if (topLeft > highestAdjNums) {
-          highestAdjNums = topLeft;
-        }
+  function adjProduct(el, i, j) {
 
-        var topMid = my2DArray[i-1][j] * currentNum;
-        if (topMid > highestAdjNums) {
-          highestAdjNums = topMid;
-        }
+    let subProduct = 0; 
 
-        var topRight = my2DArray[i-1][j+1] * currentNum;
-        if (topRight > highestAdjNums) {
-          highestAdjNums = topRight;
-        }
-
-        var midLeft = my2DArray[i][j-1] * currentNum;
-        if (midLeft > highestAdjNums) {
-          highestAdjNums = midLeft;
-        }
-
-        var midRight = my2DArray[i][j+1] * currentNum;
-        if (midRight > highestAdjNums) {
-          highestAdjNums = midRight;
-        }
-
-        if (typeof my2DArray[i+1]!== 'undefined') {
-          var bottomLeft = my2DArray[i+1][j-1] * currentNum;
-          if (bottomLeft > highestAdjNums) {
-            highestAdjNums = bottomLeft;
-          }
-        }
-
-        if (typeof my2DArray[i+1]!== 'undefined'){
-          var bottomMid = my2DArray[i+1][j] * currentNum;
-          if (bottomMid > highestAdjNums) {
-            highestAdjNums = bottomMid;
-          }
-        }
-
-        if (typeof my2DArray[i+1]!== 'undefined'){
-          var bottomRight = my2DArray[i+1][j+1] * currentNum;
-          if (bottomRight > highestAdjNums) {
-            highestAdjNums = bottomRight;
-          }
+    for (let k = i - 1; k <= i + 1; k++) {
+      for (let l = j - 1; l <= j + 1; l++) {
+        if (arr[k] && !(k === i && l === j)) {
+          let elementProduct = el * arr[k][l];
+          subProduct = elementProduct > subProduct ? elementProduct : subProduct;
         }
       }
     }
-  }  
-  
-}
+    return subProduct; 
+  }
+};
 
-
-largestProduct();
+module.exports = largestProduct;
