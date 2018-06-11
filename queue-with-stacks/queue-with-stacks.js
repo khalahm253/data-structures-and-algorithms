@@ -1,8 +1,7 @@
 'use strict';
 
 
-
-
+const Stack = require('./stack');
 const moveAll = (stack, otherStack) => {
   let currentValue = stack.pop();
   while (currentValue) {
